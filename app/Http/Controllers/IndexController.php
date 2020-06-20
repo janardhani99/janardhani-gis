@@ -27,11 +27,10 @@ class IndexController extends Controller
         $sembuh = Covid::select(DB::raw('COALESCE(SUM(sembuh),0) as sembuh'))->where('tanggal',$dateNow)->get();
         $meninggal = Covid::select(DB::raw('COALESCE(SUM(meninggal),0) as meninggal'))->where('tanggal',$dateNow)->get();
                 
-                
-        $kabupaten = Kabupaten::all();
+        $kelurahan = Kelurahan::all();        
         // $labels = Kabupaten::select('kabupaten')->get();
         
-        return view('index',compact('kabupaten','covids', 'tanggalSekarang','positif','rawat','sembuh','meninggal'));
+        return view('index',compact('kelurahan','covids', 'tanggalSekarang','positif','rawat','sembuh','meninggal'));
         
     }
 

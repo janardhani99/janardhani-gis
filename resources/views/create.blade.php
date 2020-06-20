@@ -72,13 +72,13 @@
                     </div>
                     <div class="form-control">
                         <div class="form-label">
-                            <label for="pp-ln">PP-LN</label>
+                            <label for="ppln">PP-LN</label>
                         </div>
                         <input type="number" class="input" name="ppln" id="ppln" />
                     </div>
                     <div class="form-control">
                         <div class="form-label">
-                            <label for="pp-dn">PP-DN</label>
+                            <label for="ppdn">PP-DN</label>
                         </div>
                         <input type="number" class="input" name="ppdn" id="ppdn" />
                     </div>
@@ -122,7 +122,7 @@
         <br/>
         <div class="table-wrapper">
             <br/>
-        <h2 align="center"> Data Covid-19 di Bali</h2>
+        <h2 align="center"> Data Covid-19 di Bali {{$date}} </h2>
         </br>
 
             <table class="table">
@@ -133,7 +133,7 @@
                         <th rowspan="2">Kecamatan</th>
                         <th rowspan="2">Kelurahan</th>
                         <th rowspan="2">Level</th>
-                        <th colspan="5">Penyebaran</th>
+                        <th colspan="4">Penyebaran</th>
                         <th colspan="5">Kondisi</th>
                     </tr>
                     <tr>
@@ -166,7 +166,7 @@
                             <td>{{ $covid->sembuh }}</td>
                             <td>{{ $covid->meninggal }}</td>
                             <td>
-                                <form action="/covid-19/{{$covid->id_kabupaten}}" method="GET">
+                                <form action="/covid-19/{{$covid->id_kelurahan}}" method="GET">
                                     <button type="submit">
                                         <i class="fa fa-edit"></i>
                                     </button>

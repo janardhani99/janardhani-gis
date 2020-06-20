@@ -98,7 +98,7 @@
         
         <div class="table-wrapper">
             <br/>
-            <h2 align="center"> Data Covid-19 di Bali</h2>
+            <h2 align="center"> Data Covid-19 di Bali {{$tanggalSekarang}}</h2>
             <table class="table">
                 <thead>
                     <tr>

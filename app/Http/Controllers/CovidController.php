@@ -17,7 +17,7 @@ class CovidController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {        
         $covids = Covid::select('tb_input.id_input','tb_kabupaten.id_kabupaten','tb_kecamatan.id_kecamatan','tb_kelurahan.id_kelurahan','kabupaten','kecamatan','kelurahan','positif','rawat','sembuh','meninggal','ppln','ppdn','tl','lainnya','level')
                 ->join('tb_kelurahan','tb_input.id_kelurahan','=','tb_kelurahan.id_kelurahan')
                 ->join('tb_kecamatan','tb_kelurahan.id_kecamatan','=','tb_kecamatan.id_kecamatan')
@@ -27,7 +27,7 @@ class CovidController extends Controller
                 ->join('tb_kelurahan','tb_input.id_kelurahan','=','tb_kelurahan.id_kelurahan')
                 ->join('tb_kecamatan','tb_kelurahan.id_kecamatan','=','tb_kecamatan.id_kecamatan')
                 ->join('tb_kabupaten','tb_kecamatan.id_kabupaten','=','tb_kabupaten.id_kabupaten')
-                ->where('tanggal', Covid::max('tanggal'))->orderBy('tanggal','desc')
+                ->where('tanggal', Covid::max('tanggal'))->orderBy('id_kelurahan','desc')
                 ->get();
         $positif = Covid::where('tanggal', Covid::max('tanggal'))->orderBy('tanggal','desc')
                 ->sum('positif');
